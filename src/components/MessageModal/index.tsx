@@ -14,7 +14,10 @@ const MessageModal: React.FunctionComponent<Props> = ({show, handleClose}: Props
 
     return (
         <>
-            <Modal show={show} onHide={() => {setSubmit(false); handleClose()}}>
+            <Modal show={show} onHide={() => {
+                setSubmit(false);
+                handleClose()
+            }}>
                 <Modal.Header closeButton>
                     <Modal.Title>Contact</Modal.Title>
                 </Modal.Header>
@@ -43,7 +46,10 @@ const MessageModal: React.FunctionComponent<Props> = ({show, handleClose}: Props
                     }
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant='secondary' onClick={() => {setSubmit(false); handleClose()}}>
+                    <Button variant='secondary' onClick={() => {
+                        setSubmit(false);
+                        handleClose()
+                    }}>
                         Close
                     </Button>
                 </Modal.Footer>

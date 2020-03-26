@@ -1,19 +1,19 @@
 import * as React from 'react';
 import './styles.scss';
-import { Link, useParams } from 'react-router-dom';
-import BackToResults from "../BackToResults";
+import { useParams } from 'react-router-dom';
+import BackToResults from '../BackToResults';
 import Container from 'react-bootstrap/Container';
-import { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
-import useApiUrlContext from "../../services/useApiUrl";
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+import useApiUrlContext from '../../services/useApiUrl';
 import { Ad } from '../Ads';
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import MessageModal from "../MessageModal";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import MessageModal from '../MessageModal';
 
 const Details: React.FunctionComponent<{}> = () => {
-    const [ad, setAd] = useState<any>([]);
+    const [ad, setAd] = useState<Ad>({});
     // if there would be an API endpoint for ids, one could use this id for a request
     const {id} = useParams();
     const {apiUrl} = useApiUrlContext();
@@ -44,7 +44,7 @@ const Details: React.FunctionComponent<{}> = () => {
             <MessageModal show={showModal} handleClose={handleClose} />
             <BackToResults />
             <div className='card-container'>
-                <Card >
+                <Card>
                     <Card.Img variant='top' src={ad.imageUrl} />
                     <Card.Body>
                         <Card.Title>{ad.title}</Card.Title>
