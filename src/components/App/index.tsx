@@ -1,11 +1,14 @@
-import React from 'react';
+import * as React from 'react';
+import Main from '../Main';
+import '../../custom.scss';
+import ApiUrlContextProvider from "../../context/ApiUrlContext/ApiUrlContextProvider";
 
-function App() {
+const App: React.FunctionComponent<{}> = () => {
     return (
-        <div>
-
-        </div>
+        <ApiUrlContextProvider>
+            <Main />
+        </ApiUrlContextProvider>
     );
-}
+};
 
 export default App;
