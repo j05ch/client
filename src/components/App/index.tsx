@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Main from '../Main';
 import '../../custom.scss';
+import Main from '../Main';
 import ApiUrlContextProvider from "../../context/ApiUrlContext/ApiUrlContextProvider";
 
 const App: React.FunctionComponent<{}> = () => {

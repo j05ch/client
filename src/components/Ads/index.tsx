@@ -5,18 +5,19 @@ import axios from 'axios';
 import useApiUrlContext from "../../services/useApiUrl";
 import Card from 'react-bootstrap/Card';
 import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
 
-interface CardObject {
-    id: number,
-    title: string,
-    imageUrl: string,
-    description: string
-    userId: number
+export interface Ad {
+    id?: number,
+    title?: string,
+    imageUrl?: string,
+    description?: string
+    userId?: number
 }
 
 const Ads: React.FunctionComponent<{}> = () => {
-    const [adList, setAdList] = useState<Array<CardObject>>([]);
+    const [adList, setAdList] = useState<Array<Ad>>([]);
     const {apiUrl} = useApiUrlContext();
 
     useEffect(() => {
@@ -33,21 +34,23 @@ const Ads: React.FunctionComponent<{}> = () => {
 
     function buildAdCards() {
         return adList.map(ad =>
-            <Card className='card'>
-                <Card.Img variant='top' src={ad.imageUrl} />
-                <Card.Body>
-                    <Card.Title>{ad.title}</Card.Title>
-                    <Card.Text>{ad.description}</Card.Text>
-                    <Button as={Link} to={`/details:${ad.id}`} variant="primary">Details</Button>
-                </Card.Body>
-            </Card>
+            <div className='card-container'>
+                <Card >
+                    <Card.Img variant='top' src={ad.imageUrl} />
+                    <Card.Body>
+                        <Card.Title>{ad.title}</Card.Title>
+                        <Card.Text>{ad.description}</Card.Text>
+                        <Button as={Link} to={`/details:${ad.id}`} variant="primary">Details</Button>
+                    </Card.Body>
+                </Card>
+            </div>
         );
     }
 
     return (
-        <>
+        <Container>
             {buildAdCards()}
-        </>
+        </Container>
     );
 };
 

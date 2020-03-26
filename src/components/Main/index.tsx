@@ -11,7 +11,7 @@ const Main: React.FunctionComponent<{}> = () => {
             <Switch>
                 <Route exact path='/' key='home' component={Home} />
                 <Route exact path='/ads' key='ads' component={Ads} />
-                <Route exact path='/details' key='details' component={Details} />
+                <Route exact path='/details:id' key='details' component={Details} />
             </Switch>
         </Router>
     );
