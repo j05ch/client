@@ -49,7 +49,7 @@ const Details: React.FunctionComponent<{}> = () => {
                     <Card.Body>
                         <Card.Title>{ad.title}</Card.Title>
                         <Card.Text>{ad.description}</Card.Text>
-                        <Button variant='primary' onClick={() => handleClick()}>Write as message</Button>
+                        <Button variant='primary' onClick={() => handleClick()}>Write a message</Button>
                     </Card.Body>
                 </Card>
             </div>
